@@ -4,8 +4,9 @@ import { useState } from "react"
 function HomePage () {
   const [categoryInput, setCategoryInput] = useState('')
   const [questions, setQuestions] = useState([])
+  const categories = ["General Knowledge", "Geography", "Mythology", "Animals", "Science & Nature", "History", "Celebrities", "Entertainment: Music", "Entertainment: Video Games", "Entertainment: Television", "Entertainment: Film", "Entertainment: Books",  "Entertainment: Board Games", "Entertainment: Musicals & Theatre", "Science: Computers", "Science: Mathematics", ]
 
-  const categoryChange = (event) => {
+  const handleCategory = (event) => {
     setCategoryInput(event.target.value)
   }
 
@@ -24,11 +25,23 @@ function HomePage () {
     <div>
       <h1>HomePage</h1>
 
-      <input
+      {/* <input
         type="text"
         value={categoryInput}
-        onChange={categoryChange}
-      />
+        onChange={handleCategory}
+      /> */}
+
+      <select onChange={(category) => handleCategory(category)}>
+        <option>
+        Choose a category
+        </option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+
       <button onClick={submit}>Submit</button>
 
 
