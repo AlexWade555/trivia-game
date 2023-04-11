@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 function HomePage () {
@@ -26,11 +27,51 @@ function HomePage () {
       case 'Mythology':
         setCategoryNumber("20")
         break;
-
       case 'Geography':
         setCategoryNumber("22")
         break;
-
+      case 'General Knowledge':
+        setCategoryNumber("9")
+        break;
+      case 'Animals':
+        setCategoryNumber("27")
+        break;
+      case 'Science & Nature':
+        setCategoryNumber("22")
+        break;
+      case 'History':
+        setCategoryNumber("23")
+        break;
+      case 'Celebrities':
+        setCategoryNumber("26")
+        break;
+      case 'Entertainment: Music':
+        setCategoryNumber("12")
+        break;
+      case 'Entertainment: Video Games':
+        setCategoryNumber("15")
+        break;
+      case 'Entertainment: Television':
+        setCategoryNumber("14")
+        break;
+      case 'Entertainment: Film':
+        setCategoryNumber("11")
+        break;
+      case 'Entertainment: Books':
+        setCategoryNumber("10")
+        break;
+      case 'Entertainment: Board Games':
+        setCategoryNumber("16")
+        break;
+      case 'Entertainment: Musicals & Theatre':
+        setCategoryNumber("13")
+        break;
+      case 'Science: Computers':
+        setCategoryNumber("18")
+        break;
+      case 'Science: Mathematics':
+        setCategoryNumber("19")
+        break;
       default:
         setCategoryNumber("not a category")
     }
@@ -63,8 +104,10 @@ function HomePage () {
         ))}
       </select>
 
-      <button onClick={submit}>Submit</button>
-
+        <button onClick={submit}>Submit</button>
+        <Link to="/questions">
+        <button>start</button>
+        </Link>
 
     </div>
   )
