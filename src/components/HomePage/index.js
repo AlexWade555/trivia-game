@@ -105,8 +105,11 @@ function HomePage () {
       </select>
 
         <button onClick={submit}>Submit</button>
-        <Link to="/questions">
-        <button>start</button>
+        <Link
+          to="/questions"
+          state={questions}
+          >
+          <button>start</button>
         </Link>
 
     </div>

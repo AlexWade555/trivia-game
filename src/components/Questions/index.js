@@ -1,7 +1,10 @@
+import { useLocation } from "react-router-dom"
 
 
-const Questions = (props) => {
-  console.log(props)
+function Questions() {
+  const location = useLocation()
+  const propsData = location.state
+  console.log(propsData)
   return (
     <div>
 
