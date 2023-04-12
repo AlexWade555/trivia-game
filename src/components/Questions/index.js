@@ -1,20 +1,49 @@
+import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 
 
 function Questions() {
   const location = useLocation()
-  const questions = location.state
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const questionData = location.state
+  const [questions, setQuestions] = useState(null)
+
+  // add score to questions component
+
+
+  const arrangeData = () => {
+    const questions = questionData.map((question) => {
+      const temp = {}
+
+      temp.question = question.question
+      temp.answers = [...question.incorrect_answers, question.correct_answer]
+      temp.correct_answer = question.correct_answer
+      return(temp)
+      })
+      setQuestions(questions)
+  }
+
+  useEffect(() => {
+    arrangeData()
+  },[])
+
   console.log(questions)
+
+  if (!questions) {
+    return(<p>loading...</p>)
+  }
   return (
-    questions.map((question) => (
-      <>
-        <p>{question.question}</p>
-        <p>{question.correct_answer}</p>
-        <p>{question.incorrect_answers[0]}</p>
-        <p>{question.incorrect_answers[1]}</p>
-        <p>{question.incorrect_answers[2]}</p>
-      </>
-    ))
+    <>
+      <p>
+        {questions[currentQuestion].question}
+      </p>
+      {questions[currentQuestion].answers.map((answer) => {
+        return(
+          <button>{answer}</button>
+        )
+        }
+      )}
+    </>
   )
 }
 
