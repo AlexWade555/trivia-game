@@ -37,7 +37,7 @@ function HomePage () {
         setCategoryNumber("27")
         break;
       case 'Science & Nature':
-        setCategoryNumber("22")
+        setCategoryNumber("17")
         break;
       case 'History':
         setCategoryNumber("23")
