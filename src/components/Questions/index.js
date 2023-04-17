@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Scoreboard from "../Scoreboard";
 
 function Questions() {
   const location = useLocation();
@@ -49,13 +50,13 @@ function Questions() {
     arrangeData();
   }, []);
 
-  const submitAnswer = (answer) => {
+  function submitAnswer(answer) {
     if (answer === questions[currentQuestion].correct_answer) {
-      score = score + 1
-      currentQuestion = currentQuestion + 1
+      setScore(score + 1)
+      setCurrentQuestion(currentQuestion +1)
       console.log('correct')
     } else {
-      currentQuestion = currentQuestion + 1
+      setCurrentQuestion(currentQuestion + 1)
       console.log('wrong')
     }
   }
@@ -65,17 +66,26 @@ function Questions() {
   if (!questions) {
     return <p>loading...</p>;
   }
-  return (
-    <>
-      <p>{questions[currentQuestion].question}</p>
-      {questions[currentQuestion].answers.map((answer) => {
-        return <button onClick={submitAnswer(answer)}>{answer}</button>;
-      })}
-      <p>
+  if (currentQuestion < 10) {
+
+    return (
+      <>
+        <p dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></p>
+        {questions[currentQuestion].answers.map((answer) => {
+          return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
+        })}
+        <p>
         score: {score}
-      </p>
-    </>
-  );
+        </p>
+      </>
+    );
+  } else {
+    return (
+      <Scoreboard
+      score={score}
+      />
+    )
+  }
 }
 
 export default Questions;

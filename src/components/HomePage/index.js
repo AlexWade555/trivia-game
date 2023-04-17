@@ -7,16 +7,20 @@ function HomePage () {
   const [categoryNumber, setCategoryNumber] = useState('')
   const [questions, setQuestions] = useState([])
   const categories = ["General Knowledge", "Geography", "Mythology", "Animals", "Science & Nature", "History", "Celebrities", "Entertainment: Music", "Entertainment: Video Games", "Entertainment: Television", "Entertainment: Film", "Entertainment: Books",  "Entertainment: Board Games", "Entertainment: Musicals & Theatre", "Science: Computers", "Science: Mathematics", ]
+  const [isVisable, setIsVisable] = useState(false)
 
   const handleCategory = (event) => {
     convertCategory(event.target.value)
+    setIsVisable(false)
   }
 
   const submit = () => {
     return (
       fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&type=multiple`)
       .then((response) => response.json())
-      .then((data) => setQuestions([...data.results]))
+      .then((data) => {setQuestions([...data.results])
+      setIsVisable(true)
+      })
       .catch((error) => console.log(error))
     )
   }
@@ -105,12 +109,14 @@ function HomePage () {
       </select>
 
         <button onClick={submit}>Submit</button>
+        {isVisable &&
         <Link
           to="/questions"
           state={questions}
           >
           <button>start</button>
         </Link>
+        }
 
     </div>
   )
