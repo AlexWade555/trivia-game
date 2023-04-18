@@ -88,8 +88,8 @@ function HomePage () {
 
 
   return (
-    <div>
-      <h1>Choose your category</h1>
+    <div className="container">
+      <h1>Get started</h1>
 
       {/* <input
         type="text"
