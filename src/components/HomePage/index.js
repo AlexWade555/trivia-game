@@ -114,7 +114,7 @@ function HomePage () {
           to="/questions"
           state={questions}
           >
-          <button>start</button>
+          <button>Play</button>
         </Link>
         }
 

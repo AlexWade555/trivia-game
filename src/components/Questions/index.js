@@ -69,15 +69,15 @@ function Questions() {
   if (currentQuestion < 10) {
 
     return (
-      <>
-        <p dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></p>
+      <div className="container">
+        <h2 dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></h2>
         {questions[currentQuestion].answers.map((answer) => {
           return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
         })}
         <p>
         score: {score}
         </p>
-      </>
+      </div>
     );
   } else {
     return (
