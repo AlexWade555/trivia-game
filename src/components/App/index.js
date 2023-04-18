@@ -11,9 +11,8 @@ function App() {
       <Routes>
         <Route path="*" element={<NotFound/>}/>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="/questions" element={<Questions/> }>
-          {/* <Route path=":score" element={<Scoreboard />}/> */}
-        </Route>
+        <Route path="/questions" element={<Questions/> }/>
+        <Route path="/scoreboard/:score" element={<Scoreboard />}/>
       </Routes>
     </BrowserRouter>
   );

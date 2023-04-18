@@ -1,9 +1,10 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 
-
-function Scoreboard (props) {
+function Scoreboard () {
   const [submitScore, setSubmitScore] = useState(false)
   const [name, setName] = useState('')
+  let {score} = useParams()
 
   const handleName = (event) => {
     setName(event.target.value)
@@ -19,7 +20,7 @@ function Scoreboard (props) {
 
     return (
       <div className="container">
-        <p>{name}:{props.score}</p>
+        <p>{name}:{score}</p>
       </div>
     )
   } else {

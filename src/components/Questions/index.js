@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
-import Scoreboard from "../Scoreboard";
+import { Outlet, redirect, useLocation, Navigate } from "react-router-dom";
 
 function Questions() {
   const location = useLocation();
@@ -80,11 +79,8 @@ function Questions() {
       </div>
     );
   } else {
-    return (
-      <Scoreboard
-      score={score}
-      />
-    )
+    // return redirect(`/scoreboard/${score}`)
+    return <Navigate to={`/scoreboard/${score}`}/>
   }
 }
 
