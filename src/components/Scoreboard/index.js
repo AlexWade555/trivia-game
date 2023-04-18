@@ -18,16 +18,16 @@ function Scoreboard (props) {
   if (submitScore) {
 
     return (
-      <div className="Scoreboard">
+      <div className="container">
         <p>{name}:{props.score}</p>
       </div>
     )
   } else {
     return (
-      <>
+      <div className="container">
         <input onChange={handleName}></input>
         <button onClick={handleSubmit}>submit</button>
-      </>
+      </div>
       )
     }
 }
