@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function Scoreboard () {
   // const [submitScore, setSubmitScore] = useState(false)
@@ -15,37 +16,37 @@ function Scoreboard () {
   // }
 
   const handleStars = () => {
-    if (score > 8) {
+    if (score > 7) {
       return (
       <div className="stars">
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
+        <img src="/images/Star.gif" alt="Gold Star!"/>
+        <img src="/images/Star.gif" alt="Gold Star!"/>
+        <img src="/images/Star.gif" alt="Gold Star!"/>
         <h3>Amazing!</h3>
       </div>)
-    } else if (score > 5) {
+    } else if (score > 4) {
       return (
         <div className="stars">
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <h3>Well done!</h3>
-      </div>)
+          <img src="/images/Star.gif" alt="Gold Star!"/>
+          <img src="/images/Star.gif" alt="Gold Star!"/>
+          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          <h3>Well done!</h3>
+        </div>)
     } else if (score > 3) {
       return (
         <div className="stars">
-        <img src="../../../public/images/Star.gif" alt="Gold Star!"/>
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <h3>Not bad!</h3>
+          <img src="/images/Star.gif" alt="Gold Star!"/>
+          <img src="/images/BlankStar.jpg" alt="Blank Star2"/>
+          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          <h3>Not bad!</h3>
       </div>)
     } else {
       return (
         <div className="stars">
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <img src="../../../public/images/BlankStar.jpg" alt="Blank Star"/>
-        <h3>Better luck next time!</h3>
+          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          <h3>Better luck next time!</h3>
       </div>)
     }
   }
@@ -72,6 +73,9 @@ function Scoreboard () {
         <h3>You got {score}/10!</h3>
         {handleStars()}
       </div>
+      <Link to="/">
+        <button>Play Again?</button>
+      </Link>
     </div>
   )
 

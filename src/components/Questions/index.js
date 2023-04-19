@@ -74,7 +74,7 @@ function Questions() {
           return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
         })}
         <p>
-        score: {score}
+        Current score: {score}
         </p>
       </div>
     );

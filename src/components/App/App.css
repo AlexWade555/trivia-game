@@ -77,8 +77,19 @@ h3 {
   color: rgb(0, 0, 0);
   font-size: 40px;
   padding: 15px 30px;
-  text-align: center;
-  text-shadow: -1px 1px rgb(80, 80, 80);
+  text-shadow: -1px 1px rgb(179, 179, 179);
+  justify-content: center;
+}
+
+p {
+  font-family: 'Neucha', cursive;
+  display: flex;
+  border-radius: 15px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 25px;
+  padding: 15px 30px;
+  justify-content: center;
+  text-shadow: -1px 1px black;
 }
 
 .container {
@@ -194,4 +205,8 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin: 10px;
+}
+
+img {
+  width: 100px;
 }
