@@ -18,36 +18,44 @@ function Scoreboard () {
   const handleStars = () => {
     if (score > 7) {
       return (
-      <div className="stars">
-        <img src="/images/Star.gif" alt="Gold Star!"/>
-        <img src="/images/Star.gif" alt="Gold Star!"/>
-        <img src="/images/Star.gif" alt="Gold Star!"/>
-        <h3>Amazing!</h3>
-      </div>)
+        <div className="score">
+          <div className="stars">
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+          </div>
+          <h3>Amazing!</h3>
+       </div>)
     } else if (score > 4) {
       return (
-        <div className="stars">
-          <img src="/images/Star.gif" alt="Gold Star!"/>
-          <img src="/images/Star.gif" alt="Gold Star!"/>
-          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+        <div className="score">
+          <div className="stars">
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+            <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          </div>
           <h3>Well done!</h3>
         </div>)
     } else if (score > 3) {
       return (
-        <div className="stars">
-          <img src="/images/Star.gif" alt="Gold Star!"/>
-          <img src="/images/BlankStar.jpg" alt="Blank Star2"/>
-          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+        <div className="score">
+          <div className="stars">
+            <img src="/images/Star.gif" alt="Gold Star!"/>
+            <img src="/images/BlankStar.jpg" alt="Blank Star2"/>
+            <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          </div>
           <h3>Not bad!</h3>
-      </div>)
+        </div>)
     } else {
       return (
-        <div className="stars">
-          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
-          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
-          <img src="/images/BlankStar.jpg" alt="Blank Star"/>
-          <h3>Better luck next time!</h3>
-      </div>)
+        <div className="score">
+          <div className="stars">
+            <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+            <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+            <img src="/images/BlankStar.jpg" alt="Blank Star"/>
+          </div>
+            <h3>Better luck next time!</h3>
+        </div>)
     }
   }
 

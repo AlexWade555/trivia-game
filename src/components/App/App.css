@@ -210,3 +210,8 @@ button {
 img {
   width: 100px;
 }
+
+.stars {
+  display: flex;
+  justify-content: center;
+}
