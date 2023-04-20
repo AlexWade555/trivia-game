@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 
 
-function HomePage () {
+function CategorySelection () {
   // const [categoryInput, setCategoryInput] = useState('')
   const [categoryNumber, setCategoryNumber] = useState('')
   const [questions, setQuestions] = useState([])
@@ -122,4 +122,4 @@ function HomePage () {
   )
 }
 
-export default HomePage
+export default CategorySelection

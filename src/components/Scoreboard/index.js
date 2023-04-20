@@ -81,7 +81,7 @@ function Scoreboard () {
         <h3>You got {score}/10!</h3>
         {handleStars()}
       </div>
-      <Link to="/">
+      <Link to="/categoryselection">
         <button>Play Again?</button>
       </Link>
     </div>
