@@ -59,22 +59,6 @@ function Scoreboard () {
     }
   }
 
-//   if (submitScore) {
-
-//     return (
-//       <div className="container">
-//         <p>{name}:{score}</p>
-//       </div>
-//     )
-//   } else {
-//     return (
-//       <div className="container">
-//         <input onChange={handleName}></input>
-//         <button onClick={handleSubmit}>submit</button>
-//       </div>
-//       )
-//     }
-
   return (
     <div className="container">
       <div className="scorebox">
