@@ -69,10 +69,14 @@ function Questions() {
 
     return (
       <div className="container">
-        <h2 dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></h2>
-        {questions[currentQuestion].answers.map((answer) => {
-          return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
-        })}
+        <div className="card">
+        <h3 dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></h3>
+        </div>
+        <div className="buttons">
+          {questions[currentQuestion].answers.map((answer) => {
+            return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
+          })}
+        </div>
         <p>
         Current score: {score}
         </p>
