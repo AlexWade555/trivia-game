@@ -215,3 +215,12 @@ img {
   display: flex;
   justify-content: center;
 }
+
+svg {
+  width: 25px;
+  height: 25px;
+}
+
+.icon {
+  display: flex;
+}

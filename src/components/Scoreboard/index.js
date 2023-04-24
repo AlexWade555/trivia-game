@@ -59,29 +59,13 @@ function Scoreboard () {
     }
   }
 
-//   if (submitScore) {
-
-//     return (
-//       <div className="container">
-//         <p>{name}:{score}</p>
-//       </div>
-//     )
-//   } else {
-//     return (
-//       <div className="container">
-//         <input onChange={handleName}></input>
-//         <button onClick={handleSubmit}>submit</button>
-//       </div>
-//       )
-//     }
-
   return (
     <div className="container">
       <div className="scorebox">
         <h3>You got {score}/10!</h3>
         {handleStars()}
       </div>
-      <Link to="/">
+      <Link to="/categoryselection">
         <button>Play Again?</button>
       </Link>
     </div>
