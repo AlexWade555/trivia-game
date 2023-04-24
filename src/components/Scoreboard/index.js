@@ -61,7 +61,7 @@ function Scoreboard () {
 
   return (
     <div className="container">
-      <div className="scorebox">
+      <div className="card">
         <h3>You got {score}/10!</h3>
         {handleStars()}
       </div>
