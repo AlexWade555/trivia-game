@@ -1,4 +1,4 @@
-<h1>Trivia!</h1>
+# [🔗App*](http://www.churnit.me/) | Trivia!
 
 Trivia! is a React game using data from <a href="https://opentdb.com/"> OpenTrivia API </a>.
 
