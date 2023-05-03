@@ -1,4 +1,4 @@
-# [🔗App*](http://www.churnit.me/) | Trivia!
+# [🔗App](https://trivia-game-ashen.vercel.app/) | Trivia!
 
 Trivia! is a React game using data from <a href="https://opentdb.com/"> OpenTrivia API </a>.
 
