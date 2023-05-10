@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 
 function CategorySelection () {
@@ -8,22 +8,23 @@ function CategorySelection () {
   const [questions, setQuestions] = useState([])
   const categories = ["General Knowledge", "Geography", "Mythology", "Animals", "Science & Nature", "History", "Celebrities", "Entertainment: Music", "Entertainment: Video Games", "Entertainment: Television", "Entertainment: Film", "Entertainment: Books",  "Entertainment: Board Games", "Entertainment: Musicals & Theatre", "Science: Computers", "Science: Mathematics", ]
   const [isVisable, setIsVisable] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCategory = (event) => {
     convertCategory(event.target.value)
     setIsVisable(false)
   }
 
-  const submit = () => {
-    return (
-      fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&type=multiple`)
-      .then((response) => response.json())
-      .then((data) => {setQuestions([...data.results])
-      setIsVisable(true)
-      })
-      .catch((error) => console.log(error))
-    )
-  }
+  // const submit = () => {
+  //   return (
+  //     fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&type=multiple`)
+  //     .then((response) => response.json())
+  //     .then((data) => {setQuestions([...data.results])
+  //     setIsVisable(true)
+  //     })
+  //     .catch((error) => console.log(error))
+  //   )
+  // }
 
   const convertCategory = (categoryInput) => {
 
@@ -81,6 +82,22 @@ function CategorySelection () {
     }
   }
 
+  const handleClick = async () => {
+    setIsLoading(true);
+    try {
+      await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&type=multiple`)
+      .then((response) => response.json())
+      .then((data) => {setQuestions([...data.results])
+        setIsVisable(true)
+      })
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
+    <Navigate to="/questions"
+    state={questions} />
+  };
+
 
   console.log("questions", questions)
   // console.log("input", categoryInput)
@@ -108,7 +125,9 @@ function CategorySelection () {
         ))}
       </select>
 
-        <button onClick={submit}>Submit</button>
+        <button onClick={handleClick}>
+        {isLoading ? 'Loading...' : 'play'}
+        </button>
         {isVisable &&
         <Link
           to="/questions"
