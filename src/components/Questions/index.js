@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
+import './Questions.css'
 
 function Questions() {
   const location = useLocation();
@@ -49,15 +50,30 @@ function Questions() {
     arrangeData();
   }, []);
 
-  function submitAnswer(answer) {
-    if (answer === questions[currentQuestion].correct_answer) {
+  function submitAnswer(answer, index) {
+    const correctAnswer = questions[currentQuestion].correct_answer
+    const buttons = document.getElementsByClassName("option")
+
+    if (answer === correctAnswer) {
       setScore(score + 1)
-      setCurrentQuestion(currentQuestion +1)
+      buttons[index].classList.add('correct')
+      // setCurrentQuestion(currentQuestion +1)
       console.log('correct')
     } else {
-      setCurrentQuestion(currentQuestion + 1)
+      buttons[index].classList.add('incorrect')
+      // setCurrentQuestion(currentQuestion + 1)
       console.log('wrong')
     }
+
+    setTimeout(() => {
+      if (answer === correctAnswer) {
+        buttons[index].classList.remove("correct");
+      } else {
+        buttons[index].classList.remove("incorrect");
+      }
+
+      setCurrentQuestion(currentQuestion + 1);
+    }, 1000);
   }
 
   console.log(currentQuestion);
@@ -74,9 +90,15 @@ function Questions() {
         <h3 dangerouslySetInnerHTML={{ __html: questions[currentQuestion].question }}></h3>
         </div>
         <div className="buttons">
-          {questions[currentQuestion].answers.map((answer) => {
-            return <button key={answer} onClick={() => submitAnswer(answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
-          })}
+          {questions[currentQuestion].answers.map((answer, index) => (
+            <button
+            key={answer}
+            className="option"
+            onClick={() => submitAnswer(answer, index)}
+            dangerouslySetInnerHTML={{ __html: answer }}>
+
+            </button>
+          ))}
         </div>
         <p>
         Current score: {score}

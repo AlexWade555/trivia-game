@@ -1,0 +1,33 @@
+.correct {
+  animation: flashGreen 1s;
+  background-color: green;
+}
+
+.incorrect {
+  animation: flashRed 1s;
+  background-color: red;
+}
+
+@keyframes flashGreen {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+@keyframes flashRed {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: red;
+  }
+}
