@@ -11,6 +11,7 @@ function CategorySelection () {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleCategory = (event) => {
+    setIsSubmitted(false)
     convertCategory(event.target.value)
   }
 
