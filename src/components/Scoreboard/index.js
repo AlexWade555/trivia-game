@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 function Scoreboard () {
   // const [submitScore, setSubmitScore] = useState(false)
   // const [name, setName] = useState('')
-  let {score} = useParams()
+  const location = useLocation()
+  const score = location.state;
 
   // const handleName = (event) => {
   //   setName(event.target.value)

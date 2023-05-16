@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/CategorySelection" element={<CategorySelection/>}/>
         <Route path="/questions" element={<Questions/> }/>
-        <Route path="/scoreboard/:score" element={<Scoreboard />}/>
+        <Route path="/scoreboard" element={<Scoreboard />}/>
       </Routes>
     </BrowserRouter>
   );

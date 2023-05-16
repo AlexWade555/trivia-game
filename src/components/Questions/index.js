@@ -84,7 +84,7 @@ function Questions() {
     );
   } else {
     // return redirect(`/scoreboard/${score}`)
-    return <Navigate to={`/scoreboard/${score}`}/>
+    return <Navigate to={`/scoreboard`} state={score}/>
   }
 }
 
