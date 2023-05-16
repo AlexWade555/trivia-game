@@ -61,6 +61,7 @@ function Questions() {
   }
 
   console.log(currentQuestion);
+  console.log(score)
 
   if (!questions) {
     return <p>loading...</p>;

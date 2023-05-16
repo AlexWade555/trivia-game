@@ -1,12 +1,11 @@
-import { useState } from "react"
-import { useParams, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 function Scoreboard () {
   // const [submitScore, setSubmitScore] = useState(false)
   // const [name, setName] = useState('')
   const location = useLocation()
-  const score = location.state;
+  let score = location.state;
 
   // const handleName = (event) => {
   //   setName(event.target.value)
@@ -15,6 +14,26 @@ function Scoreboard () {
   // const handleSubmit = () => {
   //   setSubmitScore(true)
   // }
+
+  // useEffect(() => {
+  //   setScore(handleScore(score))
+  // }, []);
+
+  // const handleScore = (score) => {
+  //   if (score === null) {
+  //     return 0
+  //   }
+  //   return score
+  // }
+
+  let handleScore
+    if (score === null) {
+      handleScore = 0
+    } else {
+      handleScore = score
+    }
+
+  console.log(score)
 
   const handleStars = () => {
     if (score > 7) {
@@ -63,7 +82,7 @@ function Scoreboard () {
   return (
     <div className="container">
       <div className="card">
-        <h3>You got {score}/10!</h3>
+        <h3>You got {handleScore}/10!</h3>
         {handleStars()}
       </div>
       <Link to="/categoryselection">
