@@ -7,12 +7,11 @@ function CategorySelection () {
   const [categoryNumber, setCategoryNumber] = useState('')
   const [questions, setQuestions] = useState([])
   const categories = ["General Knowledge", "Geography", "Mythology", "Animals", "Science & Nature", "History", "Celebrities", "Entertainment: Music", "Entertainment: Video Games", "Entertainment: Television", "Entertainment: Film", "Entertainment: Books",  "Entertainment: Board Games", "Entertainment: Musicals & Theatre", "Science: Computers", "Science: Mathematics", ]
-  const [isVisable, setIsVisable] = useState(false)
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleCategory = (event) => {
     convertCategory(event.target.value)
-    setIsVisable(false)
   }
 
   // const submit = () => {
@@ -88,16 +87,24 @@ function CategorySelection () {
       await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&type=multiple`)
       .then((response) => response.json())
       .then((data) => {setQuestions([...data.results])
-        setIsVisable(true)
       })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-    setIsLoading(false);
-    <Navigate to="/questions"
-    state={questions} />
+    setIsLoading(false)
+    setIsSubmitted(true)
   };
 
+  let buttonText
+    if (isLoading) {
+      buttonText = 'Loading...'
+    } else if (isSubmitted) {
+      buttonText = (
+      <Link to="/questions" state={questions}>Play</Link>
+      )
+    } else {
+      buttonText = 'Submit'
+    }
 
   console.log("questions", questions)
   // console.log("input", categoryInput)
@@ -126,16 +133,16 @@ function CategorySelection () {
       </select>
 
         <button onClick={handleClick}>
-        {isLoading ? 'Loading...' : 'play'}
+        {buttonText}
         </button>
-        {isVisable &&
+        {/* {isVisable &&
         <Link
           to="/questions"
           state={questions}
           >
           <button>Play</button>
         </Link>
-        }
+        } */}
 
     </div>
   )
