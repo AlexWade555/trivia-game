@@ -31,3 +31,8 @@
     background-color: red;
   }
 }
+
+
+button:disabled {
+  border-color: black;
+}

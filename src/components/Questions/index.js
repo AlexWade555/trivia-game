@@ -4,10 +4,11 @@ import './Questions.css'
 
 function Questions() {
   const location = useLocation();
-  let [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionData = location.state;
   const [questions, setQuestions] = useState(null);
-  let [score, setScore] = useState(0)
+  const [score, setScore] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   // add score to questions component
 
@@ -65,6 +66,8 @@ function Questions() {
       console.log('wrong')
     }
 
+    setIsAnimating(true)
+
     setTimeout(() => {
       if (answer === correctAnswer) {
         buttons[index].classList.remove("correct");
@@ -72,7 +75,8 @@ function Questions() {
         buttons[index].classList.remove("incorrect");
       }
 
-      setCurrentQuestion(currentQuestion + 1);
+      // setCurrentQuestion(currentQuestion + 1);
+      setIsAnimating(false)
     }, 1000);
   }
 
@@ -95,6 +99,7 @@ function Questions() {
             key={answer}
             className="option"
             onClick={() => submitAnswer(answer, index)}
+            disabled={isAnimating}
             dangerouslySetInnerHTML={{ __html: answer }}>
 
             </button>
