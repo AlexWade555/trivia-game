@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, redirect, useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 
 function Questions() {
   const location = useLocation();
