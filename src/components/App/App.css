@@ -193,3 +193,7 @@ svg {
 .icon {
   display: flex;
 }
+
+a {
+  text-decoration: none;
+}

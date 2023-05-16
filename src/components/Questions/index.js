@@ -61,6 +61,7 @@ function Questions() {
   }
 
   console.log(currentQuestion);
+  console.log(score)
 
   if (!questions) {
     return <p>loading...</p>;
@@ -84,7 +85,7 @@ function Questions() {
     );
   } else {
     // return redirect(`/scoreboard/${score}`)
-    return <Navigate to={`/scoreboard/${score}`}/>
+    return <Navigate to={`/scoreboard`} state={score}/>
   }
 }
 
