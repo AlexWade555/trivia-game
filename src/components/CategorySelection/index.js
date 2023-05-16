@@ -100,9 +100,7 @@ function CategorySelection () {
     if (isLoading) {
       buttonText = 'Loading...'
     } else if (isSubmitted) {
-      buttonText = (
-      <Link to="/questions" state={questions}>Play</Link>
-      )
+      buttonText = 'Play'
     } else {
       buttonText = 'Submit'
     }
@@ -133,9 +131,19 @@ function CategorySelection () {
         ))}
       </select>
 
-        <button onClick={handleClick}>
+          {isSubmitted ? (
+            <Link to="/questions" onClick={handleClick} state={questions}>
+              <button>{buttonText}</button>
+            </Link>
+          ) : (
+            <button onClick={(handleClick)}>
+              {buttonText}
+            </button>
+          )}
+
+        {/* <button onClick={handleClick}>
         {buttonText}
-        </button>
+        </button> */}
         {/* {isVisable &&
         <Link
           to="/questions"
