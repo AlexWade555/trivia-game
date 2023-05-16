@@ -63,6 +63,8 @@ function Questions() {
     } else {
       buttons[index].classList.add('incorrect')
       // setCurrentQuestion(currentQuestion + 1)
+      const correctIndex = questions[currentQuestion].answers.findIndex((a) => a === correctAnswer)
+      buttons[correctIndex].classList.add("correct")
       console.log('wrong')
     }
 
@@ -73,9 +75,11 @@ function Questions() {
         buttons[index].classList.remove("correct");
       } else {
         buttons[index].classList.remove("incorrect");
+        const correctIndex = questions[currentQuestion].answers.findIndex((a) => a === correctAnswer);
+        buttons[correctIndex].classList.remove("correct");
       }
 
-      // setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion(currentQuestion + 1);
       setIsAnimating(false)
     }, 1000);
   }
